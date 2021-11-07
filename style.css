@@ -66,6 +66,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: monospace;
 }
 
 html:focus-within {
@@ -130,7 +131,7 @@ select {
   font-weight: 400;
 }
 
-.fs- .flow > *:where(:not(:first-child)) {
+.flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
 
@@ -175,50 +176,73 @@ select {
   line-height: 1.1;
 }
 
-/* ----------------- */
-/* Components        */
-/* ----------------- */
-
 .bg-strong-cyan {
-  background-color: var(--clr-strong-cyan);
+  background-color: hsl(var(--clr-strong-cyan));
 }
 .bg-very-dark-cyan {
-  background-color: var(--clr-very-dark-cyan);
+  background-color: hsl(var(--clr-very-dark-cyan));
 }
 .bg-dark-grayish-cyan-1 {
-  background-color: var(--clr-dark-grayish-cyan-1);
+  background-color: hsl(var(--clr-dark-grayish-cyan-1));
 }
 .bg-dark-grayish-cyan-2 {
-  background-color: var(--clr-dark-grayish-cyan-2);
+  background-color: hsl(var(--clr-dark-grayish-cyan-2));
 }
 .bg-light-grayish-cyan-1 {
-  background-color: var(--clr-light-grayish-cyan-1);
+  background-color: hsl(var(--clr-light-grayish-cyan-1));
 }
 .bg-light-grayish-cyan-2 {
-  background-color: var(--clr-light-grayish-cyan-2);
+  background-color: hsl(var(--clr-light-grayish-cyan-2));
 }
 .bg-white {
-  background-color: var(--clr-white);
+  background-color: hsl(var(--clr-white));
 }
 
 .text-strong-cyan {
-  color: var(--clr-strong-cyan);
+  color: hsl(var(--clr-strong-cyan));
 }
 .text-very-dark-cyan {
-  color: var(--clr-very-dark-cyan);
+  color: hsl(var(--clr-very-dark-cyan));
 }
 .text-dark-grayish-cyan-1 {
-  color: var(--clr-dark-grayish-cyan-1);
+  color: hsl(var(--clr-dark-grayish-cyan-1));
 }
 .text-dark-grayish-cyan-2 {
-  color: var(--clr-dark-grayish-cyan-2);
+  color: hsl(var(--clr-dark-grayish-cyan-2));
 }
 .text-light-grayish-cyan-1 {
-  color: var(--clr-light-grayish-cyan-1);
+  color: hsl(var(--clr-light-grayish-cyan-1));
 }
 .text-light-grayish-cyan-2 {
-  color: var(--clr-light-grayish-cyan-2);
+  color: hsl(var(--clr-light-grayish-cyan-2));
 }
 .text-white {
-  color: var(--clr-white);
+  color: hsl(var(--clr-white));
 }
+
+/* ------------------------------- */
+/* Design system components        */
+/* ------------------------------- */
+
+.design-system {
+  width: 100vw;
+}
+
+.section-titles {
+  margin-block: 1rem;
+}
+
+.design-container {
+  margin: auto;
+  width: 50vw;
+  flex-direction: column;
+  /* border: 1px solid black; */
+}
+
+.design-section > div > div > div {
+  border: 1px solid black;
+}
+
+/* ----------------- */
+/* Components        */
+/* ----------------- */
