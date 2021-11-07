@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap");
+
+/* ------------------------- */
+/* Custom properites         */
+/* ------------------------- */
+
+:root {
+  /* colors */
+  --clr-strong-cyan: 172, 67%, 45%;
+  --clr-very-dark-cyan: 183, 100%, 15%;
+  --clr-dark-grayish-cyan-1: 186, 14%, 43%;
+  --clr-dark-grayish-cyan-2: 184, 14%, 56%;
+  --clr-light-grayish-cyan-1: 185, 41%, 84%;
+  --clr-light-grayish-cyan-2: 189, 41%, 97%;
+  --clr-white: 0, 0%, 100%;
+
+  /* font-sizes */
+  --fs-900: 2.75rem;
+  --fs-700: 1.75rem;
+  --fs-500: 1.5rem;
+  --fs-300: 1rem;
+  --fs-100: 0.875rem;
+
+  /* font-families */
+  --ff-space-mono: "Space Mono", monospace, serif;
+}
+
+/* -------------- */
+/* CSS Reset      */
+/* -------------- */
+
+/* border box means that border and padding are included into width and height of the element */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/* text-rendering optimization for performance purposes */
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* reseting list style only when element has a delared list role. list-style: none , hides the meaning from the screen readers, to mark element as a list after removing styles, make sure you added role="list" */
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* these element has default font, so it should be set as a inherit to provide styling */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------*/
+/* Utility classes     */
+/* ------------------- */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fs- .flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 3px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-100 {
+  font-size: var(--fs-100);
+}
+
+.fs-900,
+.fs-700 {
+  line-height: 1.1;
+}
+
+/* ----------------- */
+/* Components        */
+/* ----------------- */
+
+.bg-strong-cyan {
+  background-color: var(--clr-strong-cyan);
+}
+.bg-very-dark-cyan {
+  background-color: var(--clr-very-dark-cyan);
+}
+.bg-dark-grayish-cyan-1 {
+  background-color: var(--clr-dark-grayish-cyan-1);
+}
+.bg-dark-grayish-cyan-2 {
+  background-color: var(--clr-dark-grayish-cyan-2);
+}
+.bg-light-grayish-cyan-1 {
+  background-color: var(--clr-light-grayish-cyan-1);
+}
+.bg-light-grayish-cyan-2 {
+  background-color: var(--clr-light-grayish-cyan-2);
+}
+.bg-white {
+  background-color: var(--clr-white);
+}
+
+.text-strong-cyan {
+  color: var(--clr-strong-cyan);
+}
+.text-very-dark-cyan {
+  color: var(--clr-very-dark-cyan);
+}
+.text-dark-grayish-cyan-1 {
+  color: var(--clr-dark-grayish-cyan-1);
+}
+.text-dark-grayish-cyan-2 {
+  color: var(--clr-dark-grayish-cyan-2);
+}
+.text-light-grayish-cyan-1 {
+  color: var(--clr-light-grayish-cyan-1);
+}
+.text-light-grayish-cyan-2 {
+  color: var(--clr-light-grayish-cyan-2);
+}
+.text-white {
+  color: var(--clr-white);
+}
