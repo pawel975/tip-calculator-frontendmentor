@@ -319,12 +319,13 @@ input:focus {
 }
 
 input:invalid {
-  outline: 2px solid orange;
+  outline: 2px solid orangered;
 }
 
 /* ----------------- */
 /* Layout            */
 /* ----------------- */
+
 
 main {
   max-width: 100%;
