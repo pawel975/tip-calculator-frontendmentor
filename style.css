@@ -17,7 +17,7 @@
   /* font-sizes */
   --fs-900: 2.75rem;
   --fs-700: 1.75rem;
-  --fs-500: 1.5rem;
+  --fs-500: 1.25rem;
   --fs-300: 1rem;
   --fs-100: 0.875rem;
 
@@ -67,6 +67,10 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: monospace;
+  background-color: hsl(var(--clr-light-grayish-cyan-1));
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 html:focus-within {
@@ -226,6 +230,7 @@ select {
 
 .design-system {
   width: 100vw;
+  padding-block: 5rem;;
 }
 
 .section-titles {
@@ -246,3 +251,91 @@ select {
 /* ----------------- */
 /* Components        */
 /* ----------------- */
+
+
+  /* buttons */
+
+.btn-tip,
+.btn-reset {
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.btn-tip:hover,
+.btn-reset:hover {
+  background-color: hsl(var(--clr-light-grayish-cyan-1));
+  color: hsl(var(--clr-very-dark-cyan));
+  transition: 0.5s;
+}
+
+.btn-reset {
+  padding: 0.5rem 6rem;
+  max-width: 100%;
+}
+
+.btn-tip[aria-selected="true"] {
+  background-color: hsl(var(--clr-strong-cyan));
+  color: hsl(var(--clr-very-dark-cyan));
+}
+
+.btn-reset {
+  background-color: hsl(var(--clr-strong-cyan));
+  color: hsl(var(--clr-very-dark-cyan));
+}
+
+
+  /* inputs */
+  
+input {
+    border: none;
+    border-radius: 0.25rem;
+    min-width: 10rem;
+    min-height: 2rem;
+    background-color: hsl(var(--clr-light-grayish-cyan-2));
+    text-align: right;
+  }
+
+.input-bill[type='number'],
+.input-number-of-people[type='number'] {
+  background-position: 0.5rem 50%;
+  background-repeat: no-repeat;
+}
+
+.input-bill[type='number'] {
+  background-image: url(./images/icon-dollar.svg);
+
+}
+
+.input-number-of-people[type='number'] {
+  background-image: url(./images/icon-person.svg);
+}
+
+input::placeholder {
+  color: hsl(var(--clr-dark-grayish-cyan-2));
+}
+
+input:focus {
+  outline: 2px solid hsl(var(--clr-strong-cyan));
+}
+
+input:invalid {
+  outline: 2px solid orange;
+}
+
+/* ----------------- */
+/* Layout            */
+/* ----------------- */
+
+main {
+  max-width: 100%;
+  min-height: 25rem;
+  width: 50rem;
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+main > * {
+  border-radius: 0.75rem;
+  width: 100%;
+  /* outline: 1px solid red; */
+}
