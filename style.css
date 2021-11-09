@@ -329,9 +329,9 @@ input:invalid {
 
 
 main {
-  max-width: 100%;
+  /* max-width: 100%; */
   min-height: 25rem;
-  width: 50rem;
+  width:  50rem;
   border-radius: 1.5rem;
   padding: 2rem;
   box-shadow: 0px 15px 30px 5px rgba(0, 0, 0,0.1);
@@ -355,4 +355,26 @@ main > * {
 
 .set-money {
   padding-block: 1rem;
+}
+
+.custom-input::placeholder{
+  text-align: center;
+}
+
+@media (max-width: 55rem) {
+
+  body {
+    margin-block: 4rem 0;
+  }
+
+  main {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-direction: column;
+    width: clamp(15rem,100%,25rem);
+  }
+
+  .btn-reset {
+    margin-top: 5rem;
+  }
 }
