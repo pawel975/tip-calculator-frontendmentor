@@ -31,7 +31,7 @@ function updateState() {
     if(totalTip.textContent == "NaN") totalTip.textContent = "0.00"
 }
 
-function validationCheck() {
+function validationBill() {
     if(billState == "0") {
         invalidInputs[0].style.display = "initial"
         bill.style.outline = '2px solid hsl(var(--clr-invalid))'
@@ -40,6 +40,9 @@ function validationCheck() {
         invalidInputs[0].style.display = "none"
         bill.style.outline = "2px solid hsl(var(--clr-strong-cyan))"
     }
+}
+
+function validationNumberOfPeople() {
     if(numberOfPeople == "0") {
         invalidInputs[1].style.display = "initial"
         inputNumberOfPeople.style.outline = '2px solid hsl(var(--clr-invalid))'
@@ -55,7 +58,7 @@ updateState()
 bill.addEventListener("input", () => {
     billState = bill.value
     updateState()
-    validationCheck()
+    validationBill()
 })
 
 selectTip.forEach(tip => {
@@ -77,18 +80,18 @@ inputCustomTip.addEventListener("input", (e) => {
 inputNumberOfPeople.addEventListener("input", (e) => {
     numberOfPeople = e.target.value
     updateState()
-    validationCheck()
+    validationNumberOfPeople()
 })
 
 btnReset.addEventListener("click", () => {
     updateState()
     resetData()
-
 })
 
-
-
-
+body.addEventListener("click", ()=> {
+    if(invalidInputs[0].style.display == "none") invalidInputs[0].style.outline = ""
+    if(invalidInputs[1].style.display == "none") invalidInputs[1].style.outline = ""
+})
 
 
 
