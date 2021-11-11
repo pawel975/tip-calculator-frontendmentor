@@ -13,6 +13,7 @@
   --clr-light-grayish-cyan-1: 185 41% 84%;
   --clr-light-grayish-cyan-2: 189 41% 97%;
   --clr-white: 0, 0%, 100%;
+  --clr-invalid: 29, 77%, 47%;
 
   /* font-sizes */
   --fs-900: 2.75rem;
@@ -302,6 +303,35 @@ input {
   background-repeat: no-repeat;
 }
 
+/* #input-number-of-people {
+  position: relative;
+}
+
+#input-number-of-people::after{
+  content: "Can't be zero";
+  color: hsl(var(--clr-invalid));
+  width: 50px;
+  height: 10px;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: black;
+} */
+
+.input-container {
+  position: relative;
+}
+
+.input-container span{
+  display: none;
+  position: absolute;
+  right: 0;
+  color: hsl(var(--clr-invalid));
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 .input-bill[type='number'] {
   background-image: url(./images/icon-dollar.svg);
 
@@ -319,9 +349,6 @@ input:focus {
   outline: 2px solid hsl(var(--clr-strong-cyan));
 }
 
-input:invalid {
-  outline: 2px solid orangered;
-}
 
 /* ----------------- */
 /* Layout            */
