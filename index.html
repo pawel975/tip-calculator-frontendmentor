@@ -19,30 +19,55 @@
 
     <main class="container bg-white flex" style="--gap:2rem;">
 
-      <section class="set-money flow grid">
-        <div class="input-container grid" style="--gap:0.5rem">
-          <label class="fs-300 fw-700 text-dark-grayish-cyan-1" for="input-bill">Bill
+      <section id="set-money" class="set-money flow grid">
+        <div id="input-bill" class="input-container grid" style="--gap:0.5rem">
+          <label class="fs-300 fw-700 text-dark-grayish-cyan-1" for="input-bill">Bill 
             <span>Can't be zero</span>
           </label>
-          <input id="input-bill" class="input-bill fs-500 text-very-dark-cyan fw-700" type="number" placeholder="0" min="0">
+          <input 
+            id="input-bill"     
+            class="input-bill fs-500 text-very-dark-cyan fw-700" 
+            type="number" 
+            placeholder="0" 
+            min="0" 
+            oninput="this.value = this.value == 0 ? this.value : Math.abs(this.value)"
+          >
         </div>
 
-        <div class="flow" style="--flow-space:0.5rem">
+        <section class="flow" style="--flow-space:0.5rem">
           <h2 class="fs-300 fw-700 text-dark-grayish-cyan-1">Select Tip %</h2>
           <div class="select-tip-container grid" style="--gap:1rem;">
-            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">5%</button>
-            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">10%</button>
-            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">15%</button>
-            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">25%</button>
-            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">50%</button>
-            <input class="custom-input fs-500 text-very-dark-cyan fw-700"  type="number" placeholder="Custom" min="1">
+            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
+              <span class="sr-only">Tip percent - </span>5%</button>
+            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
+              <span class="sr-only">Tip percent - </span>10%</button>
+            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
+              <span class="sr-only">Tip percent - </span>15%</button>
+            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
+              <span class="sr-only">Tip percent - </span>25%</button>
+            <button aria-selected="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
+              <span class="sr-only">Tip percent - </span>50%</button>
+            <input 
+              class="custom-input fs-500 text-very-dark-cyan fw-700"  
+              type="number"
+              placeholder="Custom" 
+              min="1"
+              oninput="this.value = this.value == 0 ? this.value : Math.abs(this.value)"
+            >
           </div>
-        </div>
+        </section>
 
-        <div class="input-container grid" style="--gap:0.5rem">
+        <div id="input-number-of-people" class="input-container grid" style="--gap:0.5rem">
           <label class="fs-300 fw-700 text-dark-grayish-cyan-1" for="input-number-of-people">
             Number of people<span>Can't be zero</span></label>
-          <input id="input-number-of-people" class="input-number-of-people fs-500 text-very-dark-cyan fw-700" type="number" placeholder="0" min="0">
+          <input 
+            id="input-number-of-people" 
+            class="input-number-of-people fs-500 text-very-dark-cyan fw-700" 
+            type="number" 
+            placeholder="0" 
+            min="0" 
+            oninput="this.value = this.value == 0 ? this.value : Math.abs(this.value)"
+          >
         </div>
       </section>
 
@@ -63,9 +88,9 @@
           </div>
           <h1 class="text-strong-cyan fs-900 fw-700" style="margin-left: auto;">$<span class="total-tip">0.00</span></h1>
         </div>
-        
         <button class="btn-reset uppercase bg-strong-cyan fw-700 fs-300 text-very-dark-cyan">reset</button>
       </section>
+      <a class="skip-to-start" href="#set-money">Skip to start</a>
     </main>
 
     <script src="script.js"></script>

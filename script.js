@@ -1,11 +1,22 @@
-const bill = document.querySelector(".input-bill");
-const selectTip = document.querySelectorAll(".btn-tip")
+
+// Input values
+const inputBill = document.querySelector(".input-bill");
 const inputCustomTip = document.querySelector(".custom-input")
 const inputNumberOfPeople = document.querySelector(".input-number-of-people")
+const selectTip = document.querySelectorAll(".btn-tip")
+
+// Tip values
 const tipAmount = document.querySelector(".tip-amount")
 const totalTip = document.querySelector(".total-tip")
+
+// Buttons
 const btnReset = document.querySelector('.btn-reset')
-const invalidInputs = document.querySelectorAll(".input-container span")
+
+// Error messages
+const invalidInputBill = document.querySelector("#input-bill span")
+const invalidInputNumberOfPeople = document.querySelector("#input-number-of-people span")
+
+
 
 let billState = "";
 let tipPercent = "";
@@ -15,7 +26,7 @@ function resetData() {
     selectTip.forEach(tip => {
         tip.setAttribute("aria-selected" , "false")
     })
-    bill.value = "";
+    inputBill.value = "";
     inputCustomTip.value = "";
     inputNumberOfPeople.value = "";
     tipAmount.textContent = "0.00"
@@ -25,36 +36,33 @@ function resetData() {
 function updateState() {
     tipAmount.textContent = ((billState * tipPercent)/100).toFixed(2) 
     totalTip.textContent = ((billState * tipPercent)/100 / numberOfPeople).toFixed(2)
-    if(tipAmount.textContent == "Infinity") tipAmount.textContent = "0.00"
-    if(totalTip.textContent == "Infinity") totalTip.textContent = "0.00"
-    if(tipAmount.textContent == "NaN") tipAmount.textContent = "0.00"
-    if(totalTip.textContent == "NaN") totalTip.textContent = "0.00"
+    if(tipAmount.textContent == "Infinity" || tipAmount.textContent == "NaN") 
+    tipAmount.textContent = "0.00"
+    if(totalTip.textContent == "Infinity" || totalTip.textContent == "NaN") 
+    totalTip.textContent = "0.00"
+
 
     if(billState == "0"){
-        bill.classList.add('invalid')
-        invalidInputs[0].style.display = "initial"
+        inputBill.classList.add('invalid')
+        invalidInputBill.style.display = "initial"
     } 
     else {
-        bill.classList.remove("invalid")
-        invalidInputs[0].style.display = "none"
+        inputBill.classList.remove("invalid")
+        invalidInputBill.style.display = "none"
     }
 
     if(numberOfPeople == "0"){
         inputNumberOfPeople.classList.add('invalid')
-        invalidInputs[1].style.display = "initial"
+        invalidInputNumberOfPeople.style.display = "initial"
     } 
     else {
         inputNumberOfPeople.classList.remove("invalid")
-        invalidInputs[1].style.display = "none"
+        invalidInputNumberOfPeople.style.display = "none"
     }
-
 }
 
-
-updateState()
-
-bill.addEventListener("input", () => {
-    billState = bill.value
+inputBill.addEventListener("input", () => {
+    billState = inputBill.value
     updateState()
 })
 
@@ -82,115 +90,8 @@ inputNumberOfPeople.addEventListener("input", (e) => {
 btnReset.addEventListener("click", () => {
     updateState()
     resetData()
+    inputBill.classList.remove("invalid")
+    invalidInputBill.style.display = "none"
+    inputNumberOfPeople.classList.remove("invalid")
+    invalidInputNumberOfPeople.style.display = "none"
 })
-
-// window.addEventListener("click", ()=> {
-//     if(invalidInputs[0].style.display == "initial") bill.style.outline = "2px solid hsl(var(--clr-invalid))"
-//     if(invalidInputs[1].style.display == "initial") inputNumberOfPeople.style.outline = "2px solid hsl(var(--clr-invalid))"
-// })
-
-
-
-// const bill = document.querySelector(".input-bill");
-// const selectTip = document.querySelectorAll(".btn-tip")
-// const inputCustomTip = document.querySelector(".custom-input")
-// const inputNumberOfPeople = document.querySelector(".input-number-of-people")
-// const tipAmount = document.querySelector(".tip-amount")
-// const totalTip = document.querySelector(".total-tip")
-// const btnReset = document.querySelector('.btn-reset')
-// const invalidInputs = document.querySelectorAll(".input-container span")
-
-// let billState = "";
-// let tipPercent = "";
-// let numberOfPeople = "";
-
-// function resetData() {
-//     selectTip.forEach(tip => {
-//         tip.setAttribute("aria-selected" , "false")
-//     })
-//     bill.value = "";
-//     inputCustomTip.value = "";
-//     inputNumberOfPeople.value = "";
-//     tipAmount.textContent = "0.00"
-//     totalTip.textContent = "0.00"
-// }
-
-// function updateState() {
-//     tipAmount.textContent = ((billState * tipPercent)/100).toFixed(2) 
-//     totalTip.textContent = ((billState * tipPercent)/100 / numberOfPeople).toFixed(2)
-//     if(tipAmount.textContent == "Infinity") tipAmount.textContent = "0.00"
-//     if(totalTip.textContent == "Infinity") totalTip.textContent = "0.00"
-//     if(tipAmount.textContent == "NaN") tipAmount.textContent = "0.00"
-//     if(totalTip.textContent == "NaN") totalTip.textContent = "0.00"
-// }
-
-// function validationBill() {
-//     if(billState == "0") {
-//         invalidInputs[0].style.display = "initial"
-//         bill.style.outline = '2px solid hsl(var(--clr-invalid))'
-//     }
-//     else {
-//         invalidInputs[0].style.display = "none"
-//         bill.style.outline = "2px solid hsl(var(--clr-strong-cyan))"
-//     }
-// }
-
-// function validationNumberOfPeople() {
-//     if(numberOfPeople == "0") {
-//         invalidInputs[1].style.display = "initial"
-//         inputNumberOfPeople.style.outline = '2px solid hsl(var(--clr-invalid))'
-//     }
-//     else {
-//         invalidInputs[1].style.display = "none"
-//         inputNumberOfPeople.style.outline = "2px solid hsl(var(--clr-strong-cyan))"
-//     }
-// }
-
-// updateState()
-
-// bill.addEventListener("input", () => {
-//     billState = bill.value
-//     updateState()
-//     validationBill()
-// })
-
-// selectTip.forEach(tip => {
-//     tip.addEventListener("click", (e)=> {
-//         selectTip.forEach(tip => tip.setAttribute("aria-selected", "false"))
-//         e.target.setAttribute("aria-selected", "true")
-//         let tipValue = e.target.textContent
-//         tipPercent = Number(tipValue.substring(0,tipValue.length-1))
-//         updateState()
-//     })
-// })
-
-// inputCustomTip.addEventListener("input", (e) => {
-//     selectTip.forEach(tip => tip.setAttribute("aria-selected", "false"))
-//     tipPercent = e.target.value
-//     updateState()
-// })
-
-// inputNumberOfPeople.addEventListener("input", (e) => {
-//     numberOfPeople = e.target.value
-//     updateState()
-//     validationNumberOfPeople()
-// })
-
-// btnReset.addEventListener("click", () => {
-//     updateState()
-//     resetData()
-// })
-
-// window.addEventListener("click", ()=> {
-//     if(invalidInputs[0].style.display == "none") invalidInputs[0].style.outline = ""
-//     if(invalidInputs[1].style.display == "none") invalidInputs[1].style.outline = ""
-//     if(invalidInputs[0].style.outline == "2px solid hsl(var(--clr-strong-cyan))") invalidInputs[0].style.outline = ""
-//     if(invalidInputs[1].style.outline == "2px solid hsl(var(--clr-strong-cyan))") invalidInputs[1].style.outline = ""
-// })
-
-
-
-
-
-
-

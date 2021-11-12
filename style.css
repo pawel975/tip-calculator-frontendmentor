@@ -243,7 +243,6 @@ select {
   margin: auto;
   width: 50vw;
   flex-direction: column;
-  /* border: 1px solid black; */
 }
 
 .design-section > div > div > div {
@@ -253,7 +252,6 @@ select {
 /* ----------------- */
 /* Components        */
 /* ----------------- */
-
 
   /* buttons */
 
@@ -338,6 +336,21 @@ input:focus {
   outline: 2px solid hsl(var(--clr-invalid));
 }
 
+/* other */
+
+.skip-to-start {
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  line-height: 50px;
+  text-align: center;
+  right: 0;
+  bottom: -70px;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
 
 /* ----------------- */
 /* Layout            */
@@ -345,7 +358,7 @@ input:focus {
 
 
 main {
-  /* max-width: 100%; */
+  position: relative;
   min-height: 25rem;
   width:  50rem;
   border-radius: 1.5rem;
@@ -356,7 +369,6 @@ main {
 main > * {
   border-radius: 0.75rem;
   width: 100%;
-  /* outline: 1px solid red; */
 }
 
 .tip-summary {
