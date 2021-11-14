@@ -21,7 +21,7 @@
     </header>
 
     <main class="container bg-white flex" style="--gap:2rem;">
-      <section id="set-money" class="set-money flow grid">
+      <div id="set-money" class="set-money flow grid">
         <div class="input-container grid" style="--gap:0.5rem">
           <label class="fs-300 fw-700 text-dark-grayish-cyan-1" for="input-bill">Bill 
             <span id="invalid-bill">Can't be zero</span>
@@ -36,10 +36,10 @@
           >
         </div>
 
-        <section class="flow" style="--flow-space:0.5rem">
+        <section class="flow" style="--flow-space:0.5rem" tabindex="0">
           <h2 class="fs-300 fw-700 text-dark-grayish-cyan-1">Select Tip %</h2>
           <div class="select-tip-container grid" style="--gap:1rem;">
-            <button aria-pressed="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
+            <button role="button" aria-pressed="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
               5%</button>
             <button aria-pressed="false" class="btn-tip fs-500 fw-700 text-white bg-very-dark-cyan" style="padding: 0.25rem 1.25rem;">
               10%</button>
@@ -72,10 +72,9 @@
           >
           <span></span>
         </div>
-      </section>
+      </div>
 
       <section class="tip-summary bg-very-dark-cyan flow flex" style="--flow-space:2rem; --gap:0rem">
-
         <div class="flex text-white">
           <div class="grid" style="--gap:0rem">
             <h2 class="fs-300">Tip Amount</h2>
@@ -93,9 +92,7 @@
         </div>
         <button class="btn-reset uppercase bg-strong-cyan fw-700 fs-300 text-very-dark-cyan">reset</button>
       </section>
-      <a class="skip-to-start" href="#logo-container">Skip to start</a>
-    </main>
-
+    </main>   
     <script src="script.js"></script>
   </body>
 </html>
