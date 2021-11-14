@@ -13,22 +13,23 @@ const totalTip = document.querySelector(".total-tip")
 const btnReset = document.querySelector('.btn-reset')
 
 // Error messages
-const invalidInputBill = document.querySelector("#input-bill span")
-const invalidInputNumberOfPeople = document.querySelector("#input-number-of-people span")
+const invalidInputBill = document.getElementById("invalid-bill")
+const invalidInputNumberOfPeople = document.getElementById("invalid-number-of-people")
 
-
-
-let billState = "";
-let tipPercent = "";
-let numberOfPeople = "";
+let billState = null;
+let tipPercent = null;
+let numberOfPeople = null;
 
 function resetData() {
     selectTip.forEach(tip => {
-        tip.setAttribute("aria-selected" , "false")
+        tip.setAttribute("aria-pressed" , "false")
     })
-    inputBill.value = "";
-    inputCustomTip.value = "";
-    inputNumberOfPeople.value = "";
+    billState = null;
+    tipPercent = null;
+    numberOfPeople = null
+    inputBill.value = null;
+    inputCustomTip.value = null;
+    inputNumberOfPeople.value = null;
     tipAmount.textContent = "0.00"
     totalTip.textContent = "0.00"
 }
@@ -59,6 +60,8 @@ function updateState() {
         inputNumberOfPeople.classList.remove("invalid")
         invalidInputNumberOfPeople.style.display = "none"
     }
+
+    console.table(billState,tipPercent,numberOfPeople)
 }
 
 inputBill.addEventListener("input", () => {
@@ -68,8 +71,8 @@ inputBill.addEventListener("input", () => {
 
 selectTip.forEach(tip => {
     tip.addEventListener("click", (e)=> {
-        selectTip.forEach(tip => tip.setAttribute("aria-selected", "false"))
-        e.target.setAttribute("aria-selected", "true")
+        selectTip.forEach(tip => tip.setAttribute("aria-pressed", "false"))
+        e.target.setAttribute("aria-pressed", "true")
         let tipValue = e.target.textContent
         tipPercent = Number(tipValue.substring(0,tipValue.length-1))
         updateState()
@@ -77,7 +80,7 @@ selectTip.forEach(tip => {
 })
 
 inputCustomTip.addEventListener("input", (e) => {
-    selectTip.forEach(tip => tip.setAttribute("aria-selected", "false"))
+    selectTip.forEach(tip => tip.setAttribute("aria-pressed", "false"))
     tipPercent = e.target.value
     updateState()
 })
@@ -88,10 +91,10 @@ inputNumberOfPeople.addEventListener("input", (e) => {
 })
 
 btnReset.addEventListener("click", () => {
-    updateState()
-    resetData()
     inputBill.classList.remove("invalid")
     invalidInputBill.style.display = "none"
     inputNumberOfPeople.classList.remove("invalid")
     invalidInputNumberOfPeople.style.display = "none"
+    updateState()
+    resetData()
 })
