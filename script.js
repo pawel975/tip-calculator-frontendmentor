@@ -35,8 +35,8 @@ function resetData() {
 }
 
 function updateState() {
-    tipAmount.textContent = ((billState * tipPercent)/100).toFixed(2) 
-    totalTip.textContent = ((billState * tipPercent)/100 / numberOfPeople).toFixed(2)
+    tipAmount.textContent = ((billState * tipPercent)/100 / numberOfPeople).toFixed(2)
+    totalTip.textContent = ((billState * tipPercent)/100).toFixed(2) 
     if(tipAmount.textContent == "Infinity" || tipAmount.textContent == "NaN") 
     tipAmount.textContent = "0.00"
     if(totalTip.textContent == "Infinity" || totalTip.textContent == "NaN") 
@@ -61,7 +61,6 @@ function updateState() {
         invalidInputNumberOfPeople.style.display = "none"
     }
 
-    console.table(billState,tipPercent,numberOfPeople)
 }
 
 inputBill.addEventListener("input", () => {
@@ -79,6 +78,7 @@ selectTip.forEach(tip => {
     })
 })
 
+
 inputCustomTip.addEventListener("input", (e) => {
     selectTip.forEach(tip => tip.setAttribute("aria-pressed", "false"))
     tipPercent = e.target.value
@@ -91,10 +91,10 @@ inputNumberOfPeople.addEventListener("input", (e) => {
 })
 
 btnReset.addEventListener("click", () => {
+    updateState()
+    resetData()
     inputBill.classList.remove("invalid")
     invalidInputBill.style.display = "none"
     inputNumberOfPeople.classList.remove("invalid")
     invalidInputNumberOfPeople.style.display = "none"
-    updateState()
-    resetData()
 })
