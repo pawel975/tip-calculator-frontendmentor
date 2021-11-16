@@ -35,12 +35,16 @@ function resetData() {
 }
 
 function updateState() {
-    tipAmount.textContent = ((billState * tipPercent)/100 / numberOfPeople).toFixed(2)
-    totalTip.textContent = ((billState * tipPercent)/100).toFixed(2) 
+    let tipAmountValue = ((billState * tipPercent)/(100 * numberOfPeople)) * 1
+    let tipTotalValue = ((billState / numberOfPeople) + tipAmountValue) *1
+    tipAmount.textContent = tipAmountValue.toFixed(2)
+    totalTip.textContent = tipTotalValue.toFixed(2)
     if(tipAmount.textContent == "Infinity" || tipAmount.textContent == "NaN") 
     tipAmount.textContent = "0.00"
     if(totalTip.textContent == "Infinity" || totalTip.textContent == "NaN") 
     totalTip.textContent = "0.00"
+
+    console.log(typeof tipAmountValue,typeof tipTotalValue)
 
 
     if(billState == "0"){
