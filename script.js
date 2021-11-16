@@ -44,9 +44,6 @@ function updateState() {
     if(totalTip.textContent == "Infinity" || totalTip.textContent == "NaN") 
     totalTip.textContent = "0.00"
 
-    console.log(typeof tipAmountValue,typeof tipTotalValue)
-
-
     if(billState == "0"){
         inputBill.classList.add('invalid')
         invalidInputBill.style.display = "initial"
